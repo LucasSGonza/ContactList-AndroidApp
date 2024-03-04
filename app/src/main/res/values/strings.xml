@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">ContactListAndroid</string>
+    <string name="new_contact">Novo Contato</string>
     <string name="name_edit_text">Nome</string>
     <string name="phone_edit_text">Telefone</string>
     <string name="btt_save_contact">Salvar Contato</string>
+    <string name="btt_save_edition">Salvar Alterações</string>
     <string name="btt_return">Retornar</string>
 </resources>

@@ -51,6 +51,7 @@
                 android:maxLength="20"
                 ></com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -67,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:text="@string/btt_save_contact"
+            android:text="@string/btt_save_edition"
             ></com.google.android.material.button.MaterialButton>
 
         <com.google.android.material.button.MaterialButton

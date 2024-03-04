@@ -23,6 +23,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".modules.newcontact.NewContactActivity"
+            android:exported="true"
+            android:label="@string/new_contact"
+            android:theme="@style/Theme.ContactListAndroid"></activity>
 
     </application>
 
