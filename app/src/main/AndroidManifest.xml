@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ContactListAndroid"
         tools:targetApi="31">
+
         <activity
             android:name=".modules.main.MainActivity"
             android:exported="true"
@@ -23,11 +24,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".modules.newcontact.NewContactActivity"
             android:exported="true"
             android:label="@string/new_contact"
-            android:theme="@style/Theme.ContactListAndroid"></activity>
+            android:theme="@style/Theme.ContactListAndroid" />
+
+        <activity
+            android:name=".modules.editcontact.EditContactActivity"
+            android:exported="true"
+            android:label="@string/edit_contact"
+            android:theme="@style/Theme.ContactListAndroid" />
 
     </application>
 

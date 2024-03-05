@@ -2,7 +2,7 @@ package com.example.contactlistandroid.model
 
 object ContactList {
 
-    private var contactList = mutableSetOf<Contact>()
+    private var contactList = mutableListOf<Contact>()
 
     fun createContact(contact: Contact) {
         contactList.add(contact)
@@ -14,6 +14,10 @@ object ContactList {
 
     fun cleanContactList() {
         contactList.clear()
+    }
+
+    fun getCopyOfContactList(): MutableList<Contact> {
+        return contactList.toMutableList()
     }
 
 }
