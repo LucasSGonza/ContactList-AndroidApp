@@ -13,7 +13,7 @@ class MainRecycleViewHolder(
         with(binding) {
             cardName.text = contact.name
             cardPhone.text = contact.phoneNumber
-            cardImage.setOnClickListener {
+            cardLayout.setOnClickListener {
                 listener.onContactClicked(contact)
             }
         }

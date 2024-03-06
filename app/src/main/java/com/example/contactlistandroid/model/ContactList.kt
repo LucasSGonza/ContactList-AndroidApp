@@ -8,12 +8,16 @@ object ContactList {
         contactList.add(contact)
     }
 
-    fun deleteContact(contact: Contact) {
-        contactList.remove(contact)
+    fun deleteContact(position: Int) {
+        contactList.removeAt(position)
     }
 
-    fun cleanContactList() {
-        contactList.clear()
+    fun editContact(contact: Contact): Contact? {
+        contactList.firstOrNull { it.id == contact.id }?.let {
+            it.name = contact.name
+            it.phoneNumber = contact.phoneNumber
+            return it
+        } ?: return null
     }
 
     fun getCopyOfContactList(): MutableList<Contact> {

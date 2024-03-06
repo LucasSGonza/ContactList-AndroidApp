@@ -9,7 +9,7 @@ import com.example.contactlistandroid.model.Contact
 
 class MainRecycleAdapter(
     private val listener: RecyclerViewListener
-    ) : RecyclerView.Adapter<MainRecycleViewHolder>() {
+) : RecyclerView.Adapter<MainRecycleViewHolder>() {
 
     private var contactList: MutableList<Contact> = mutableListOf()
 
@@ -36,6 +36,11 @@ class MainRecycleAdapter(
             addAll(contactList)
         }
         notifyDataSetChanged()
+    }
+
+    fun deleteContact(adapterPosition: Int) {
+        this.contactList.removeAt(adapterPosition)
+        notifyItemRemoved(adapterPosition)
     }
 
 }

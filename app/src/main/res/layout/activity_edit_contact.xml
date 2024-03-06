@@ -18,11 +18,15 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/name_text_input_layout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:hint="@string/name_edit_text"
+            app:startIconDrawable="@drawable/baseline_person_24"
+            app:startIconTint="@color/green"
             >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -31,25 +35,29 @@
                 android:layout_height="match_parent"
                 android:inputType="text"
                 android:maxLength="20"
-                ></com.google.android.material.textfield.TextInputEditText>
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/phone_text_input_layout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:hint="@string/phone_edit_text"
+            app:startIconDrawable="@drawable/baseline_local_phone_24"
+            app:startIconTint="@color/green"
             >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/phone_text_input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="text"
+                android:inputType="phone"
                 android:maxLength="20"
-                ></com.google.android.material.textfield.TextInputEditText>
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -67,17 +75,17 @@
             android:id="@+id/btt_save_contact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:enabled="false"
+            android:enabled="true"
             android:text="@string/btt_save_edition"
-            ></com.google.android.material.button.MaterialButton>
+            />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btt_return"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:enabled="false"
+            android:enabled="true"
             android:text="@string/btt_return"
-            ></com.google.android.material.button.MaterialButton>
+            />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
