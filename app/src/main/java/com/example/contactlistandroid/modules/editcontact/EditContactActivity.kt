@@ -5,6 +5,7 @@ import android.os.PersistableBundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
 import com.example.contactlistandroid.R
 import com.example.contactlistandroid.databinding.ActivityEditContactBinding
@@ -16,8 +17,11 @@ class EditContactActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityEditContactBinding
     private lateinit var editContactViewModel: EditContactViewModel
+    private var isNameValid: Boolean = true
+    private var isPhoneValid: Boolean = true
 
     private var contactId: Int = 0
+    private var contactPhoneNumber: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +31,7 @@ class EditContactActivity : AppCompatActivity() {
         supportActionBar?.hide()
         getContactInfo()
         setupClickListeners()
+        setupFieldsValidation()
     }
 
     private fun getContactInfo() {
@@ -44,7 +49,10 @@ class EditContactActivity : AppCompatActivity() {
                 }
             }
             it.getString("NAME")?.let { name -> binding.nameTextInputEditText.setText(name) }
-            it.getString("PHONE")?.let { phone -> binding.phoneTextInputEditText.setText(phone) }
+            it.getString("PHONE")?.let { phone ->
+                binding.phoneTextInputEditText.setText(phone)
+                this.contactPhoneNumber = phone
+            }
         }
     }
 
@@ -79,6 +87,42 @@ class EditContactActivity : AppCompatActivity() {
 
     private fun returnToDashboard() {
         this.finish()
+    }
+
+    private fun setupFieldsValidation() {
+        with(binding) {
+
+            this.nameTextInputEditText.doOnTextChanged { text, _, _, _ ->
+                text?.let {
+                    Log.i("test", "$text")
+                    this.nameTextInputLayout.error =
+                        if (text.isEmpty()) getString(R.string.error_empty_field) else null
+                    isNameValid = binding.nameTextInputLayout.error == null
+                    handleSaveContactBtn()
+                }
+            }
+
+            this.phoneTextInputEditText.doOnTextChanged { text, _, _, _ ->
+                text?.let {
+                    this.phoneTextInputLayout.error = when {
+                        text.isEmpty() -> getString(R.string.error_empty_field)
+
+                        editContactViewModel.validateIfContactAlreadyExist(text.toString()) &&
+                                text.toString() != contactPhoneNumber ->
+                            getString(R.string.error_contact_already_exist)
+
+                        else -> null
+                    }
+                    isPhoneValid = binding.phoneTextInputLayout.error == null
+                    handleSaveContactBtn()
+                }
+            }
+
+        }
+    }
+
+    private fun handleSaveContactBtn() {
+        binding.bttSaveContact.isEnabled = isPhoneValid && isNameValid
     }
 
 }

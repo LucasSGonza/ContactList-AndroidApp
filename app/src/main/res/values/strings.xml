@@ -9,5 +9,7 @@
     <string name="btt_return">Retornar</string>
     <string name="toast_create_contact">Contato criado com sucesso!</string>
     <string name="error_validate_contact_info">Erro ao validar as informações do contato!</string>
+    <string name="error_empty_field">O campo não pode ser vazio!</string>
+    <string name="error_contact_already_exist">Já existe um contato com esse número!</string>
     <string name="success_edit_contact">Sucesso em alterar as informações do contato!</string>
 </resources>

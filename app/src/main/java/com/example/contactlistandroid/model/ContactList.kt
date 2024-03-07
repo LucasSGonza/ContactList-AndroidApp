@@ -20,6 +20,11 @@ object ContactList {
         } ?: return null
     }
 
+    fun validateIfContactAlreadyExist(phoneNumber: String): Boolean {
+        val contact = contactList.firstOrNull { it.phoneNumber == phoneNumber }
+        return contact != null
+    }
+
     fun getCopyOfContactList(): MutableList<Contact> {
         return contactList.toMutableList()
     }

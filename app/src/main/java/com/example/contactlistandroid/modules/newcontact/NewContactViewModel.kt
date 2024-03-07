@@ -20,4 +20,8 @@ class NewContactViewModel : ViewModel() {
         contactListInstance.createContact(contact)
     }
 
+    fun validateIfContactAlreadyExist(phoneNumber: String): Boolean {
+        return contactListInstance.validateIfContactAlreadyExist(phoneNumber)
+    }
+
 }

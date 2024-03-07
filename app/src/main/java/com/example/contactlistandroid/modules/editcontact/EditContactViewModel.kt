@@ -11,4 +11,8 @@ class EditContactViewModel : ViewModel() {
         return contactListInstance.editContact(contact)
     }
 
+    fun validateIfContactAlreadyExist(phoneNumber: String): Boolean {
+        return contactListInstance.validateIfContactAlreadyExist(phoneNumber)
+    }
+
 }
